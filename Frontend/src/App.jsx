@@ -43,12 +43,14 @@ function App() {
         {loading && <h2>Loading...</h2>}
         <div className="grid-container">
           {searchItem!=null && data && data.map((el) => (
-            <a href={el.companyId.url} key={el._id} className="card" >
+            <div key={el._id} className="card" >
+              <a href={`https://${el.companyId.url}`} target='_blank'>
               <img src={el.imageUrl} alt={el.imageUrl} />
               <h4>Company : {el.companyId.name}</h4>
+              </a>
               <h3>{el.headline}</h3>
               <p>{el.primaryText}</p>
-            </a>
+            </div>
           ))}
         </div>
           {searchItem==null && 
